@@ -4,7 +4,7 @@ const mailer = require('../helpers/mailer');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('form');
 });
 
 router.post('/', (req, res, next) => {
@@ -13,6 +13,7 @@ router.post('/', (req, res, next) => {
   mailer.send(options)
   .then(() => {
     res.status(200).send('El correo ya llegó, anunciando su canción');
+    
   })
   .catch(err => {
     console.log('Algo salió mal', err);
